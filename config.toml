@@ -1,0 +1,40 @@
+# SoundPics — настройки (необязательно; без этого файла берутся значения по умолчанию)
+
+[audio]
+# Чем захватывать звук: auto | parecord | ffmpeg | pw-record
+backend = "auto"
+# Имя monitor-источника; пусто = автовыбор (monitor системного вывода).
+# Посмотреть варианты: run.py --list-devices
+device = ""
+rate = 16000
+# Длина куска аудио, который распознаём за раз (меньше = отзывчивее, но чаще без слов)
+chunk_seconds = 3.0
+
+[stt]
+# Модель Whisper: tiny (~150 МБ) | base (~300 МБ) | small (~1 ГБ) | medium
+model = "small"
+# Язык распознавания: ru | en | "" (автоопределение)
+language = "ru"
+device = "cpu"          # cpu | cuda
+compute_type = "int8"   # int8 (cpu) | float16/float32 (cuda)
+
+[words]
+# Копить значимые слова и искать картинку, когда их станет не меньше trigger
+trigger = 2
+# Сколько слов максимум уходит в одном запросе (2–3 по ТЗ)
+max_per_query = 3
+# Минимальная пауза между поисками картинок (сек) — чтобы не упираться в лимиты API
+min_interval = 4.0
+
+[images]
+# Где искать (по порядку попыток); ключи не нужны
+providers = ["openverse", "wikimedia"]
+cache_dir = "~/.cache/soundpics"
+prefer = "random"     # first | random — какую ссылку брать при первом поиске запроса
+timeout = 15
+
+[ui]
+always_on_top = true
+width = 900
+height = 650
+fullscreen = false

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=SoundPics
+GenericName=Визуализатор речи
+Comment=Показывает картинку на каждые 2-3 слова звучащей на устройстве речи
+Exec=@VENV@/bin/python3 @APP_DIR@/run.py
+Icon=@APP_DIR@/icon.png
+Categories=AudioVideo;Utility;
+Terminal=false
+StartupNotify=true
